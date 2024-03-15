@@ -1,14 +1,12 @@
 package microservices.inventory.Services;
 
 import microservices.inventory.DTO.Responses.InventoryResponse;
-import microservices.inventory.Models.Inventory;
 import microservices.inventory.Repositories.InventoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class InventoryService {

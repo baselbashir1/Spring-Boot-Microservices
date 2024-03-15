@@ -18,17 +18,17 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
-@Transactional
 public class OrderService {
 
-    private Logger logger = LoggerFactory.getLogger(OrderService.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(OrderService.class.getName());
 
     @Autowired
     private OrderRepository orderRepository;
 
     @Autowired
-    private WebClient webClient;
+    private WebClient.Builder webClientBuilder;
 
+    @Transactional
     public void placeOrder(OrderRequest orderRequest) {
         Order order = new Order();
         order.setOrderNumber(UUID.randomUUID().toString());
@@ -42,8 +42,8 @@ public class OrderService {
                 .map(OrderLineItem::getSkuCode)
                 .toList();
 
-        InventoryResponse[] inventoryResponseArray = webClient.get()
-                .uri("http://localhost:8082/api/inventory",
+        InventoryResponse[] inventoryResponseArray = webClientBuilder.build().get()
+                .uri("http://inventory-service/api/inventory",
                         uriBuilder -> uriBuilder.queryParam("skuCode", skuCodes).build())
                 .retrieve()
                 .bodyToMono(InventoryResponse[].class)
