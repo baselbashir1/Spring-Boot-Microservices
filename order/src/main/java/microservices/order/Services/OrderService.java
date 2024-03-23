@@ -49,7 +49,7 @@ public class OrderService {
                 .bodyToMono(InventoryResponse[].class)
                 .block();
 
-        Boolean allProductsInStock = Arrays.stream(inventoryResponseArray)
+        boolean allProductsInStock = Arrays.stream(inventoryResponseArray)
                 .allMatch(InventoryResponse::getIsInStock);
 
         if (allProductsInStock) {

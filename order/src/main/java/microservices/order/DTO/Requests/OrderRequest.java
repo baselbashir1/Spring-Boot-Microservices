@@ -1,6 +1,6 @@
 package microservices.order.DTO.Requests;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 import lombok.*;
 import microservices.order.Models.OrderLineItem;
 

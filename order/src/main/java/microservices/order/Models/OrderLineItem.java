@@ -1,7 +1,6 @@
 package microservices.order.Models;
 
-import jakarta.persistence.*;
-
+import javax.persistence.*;
 import java.math.BigDecimal;
 
 @Entity

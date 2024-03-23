@@ -1,8 +1,6 @@
 package microservices.order.DTO.Requests;
 
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import javax.persistence.*;
 
 import java.math.BigDecimal;
 
